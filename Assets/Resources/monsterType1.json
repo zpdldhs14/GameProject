@@ -1,0 +1,30 @@
+﻿{
+    "initialState": "IdleState_New",
+    "states": [
+        "IdleState_New",
+        "ChaseState_New",
+        "AttackState_New"
+    ],
+    "transitions": [
+        {
+            "fromState": "IdleState_New",
+            "toState": "AttackState_New",
+            "conditionMethod": "CanAttack"
+        },
+        {
+            "fromState": "IdleState_New",
+            "toState": "ChaseState_New",
+            "conditionMethod": "IsDetectedTarget"
+        },
+        {
+            "fromState": "ChaseState_New",
+            "toState": "AttackState_New",
+            "conditionMethod": "CanAttack"
+        },
+        {
+            "fromState": "AttackState_New",
+            "toState": "IdleState_New",
+            "conditionMethod": "IsAttacking"
+        }
+    ]
+}
